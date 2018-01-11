@@ -26,7 +26,7 @@ TapTargetView is distributed using [jcenter](https://bintray.com/keepsafesoftwar
    }
    
    dependencies {
-         implementation 'com.github.archiecrown:TapTargetView:1.10.1'
+         implementation 'com.github.onlinerby:TapTargetView:1.11.0'
    }
 ```
 
