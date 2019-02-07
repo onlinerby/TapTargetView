@@ -3,24 +3,23 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 def libname = 'TapTargetView'
-group = 'com.getkeepsafe.taptargetview'
-version = '1.11.0'
+group = 'com.github.onlinerby'
+version = '1.12.0'
 description = 'An implementation of tap targets from the Material Design guidelines for feature discovery'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    compileSdkVersion defCompileSdkVersion
+    buildToolsVersion defBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion defMinSdkVersion
     }
 }
 
-def supportLibraryVersion = '27.0.2'
 dependencies {
-    compile "com.android.support:support-annotations:$supportLibraryVersion"
-    compile "com.android.support:support-compat:$supportLibraryVersion"
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    api "androidx.annotation:annotation:$defAndroidXVersion"
+    api "androidx.appcompat:appcompat:$defAndroidXVersion"
+    implementation "androidx.core:core:$defAndroidXVersion"
 }
 
 install {
@@ -28,7 +27,7 @@ install {
         pom.project {
             name libname
             description project.description
-            url "https://github.com/KeepSafe/$libname"
+            url "https://github.com/onlinerby/$libname"
             inceptionYear 2016
 
             packaging 'aar'
@@ -44,12 +43,12 @@ install {
                 }
             }
             scm {
-                connection "https://github.com/KeepSafe/${libname}.git"
-                url "https://github.com/KeepSafe/$libname"
+                connection "https://github.com/onlinerby/${libname}.git"
+                url "https://github.com/onlinerby/$libname"
             }
             developers {
                 developer {
-                    name 'Keepsafe'
+                    name 'Onlinerby'
                 }
             }
         }
@@ -63,9 +62,9 @@ bintray {
     pkg {
         repo = 'Android'
         name = libname
-        userOrg = 'keepsafesoftware'
+        userOrg = 'onlinerbysoftware'
         licenses = ['Apache-2.0']
-        vcsUrl = "https://github.com/KeepSafe/${libname}.git"
+        vcsUrl = "https://github.com/onlinerby/${libname}.git"
 
         version {
             name = project.version
