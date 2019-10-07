@@ -9,7 +9,7 @@
 [![Download](https://api.bintray.com/packages/keepsafesoftware/Android/TapTargetView/images/download.svg) ](https://bintray.com/keepsafesoftware/Android/TapTargetView/_latestVersion)
 
 
-An implementation of tap targets from [Google's Material Design guidelines on feature discovery](https://material.google.com/growth-communications/feature-discovery.html#feature-discovery-design).
+An implementation of tap targets from [Google's Material Design guidelines on feature discovery](https://material.io/archive/guidelines/growth-communications/feature-discovery.html).
 
 **Min SDK:** 14
 
@@ -26,7 +26,7 @@ TapTargetView is distributed using [jcenter](https://bintray.com/keepsafesoftwar
    }
    
    dependencies {
-         implementation 'com.github.onlinerby:TapTargetView:1.12.0'
+         implementation 'com.github.onlinerby:TapTargetView:1.13.0'
    }
 ```
 
@@ -111,10 +111,16 @@ A sequence is started via a call to `start()` on the `TapTargetSequence` instanc
 
 For more examples of usage, please look at the included sample app.
 
+### Tutorials
+- [raywenderlich.com](https://www.raywenderlich.com/5194-taptargetview-for-android-tutorial)
+
 ## Third Party Bindings
 
 ### React Native
 Thanks to @prscX, you may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-taptargetview)
+
+### NativeScript
+Thanks to @hamdiwanis, you may now use this library with [NativeScript](https://nativescript.org) via the plugin [here](https://github.com/hamdiwanis/nativescript-app-tour)
 
 ### Xamarin
 Thanks to @btripp, you may now use this library via a Xamarin Binding located [here](https://www.nuget.org/packages/Xamarin.TapTargetView).
