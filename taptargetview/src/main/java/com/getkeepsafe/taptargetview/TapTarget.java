@@ -92,6 +92,7 @@ public class TapTarget {
   boolean cancelable = true;
   boolean tintTarget = true;
   boolean transparentTarget = false;
+  boolean pulseAnimationEnable = true;
   float descriptionTextAlpha = 0.54f;
 
   boolean useViewBounds = false;
@@ -218,6 +219,12 @@ public class TapTarget {
   /** Specify whether the target should be transparent **/
   public TapTarget transparentTarget(boolean transparent) {
     this.transparentTarget = transparent;
+    return this;
+  }
+
+  /** Enable or disable pulse animation for inner circle **/
+  public TapTarget enablePulseAnimation(boolean enable){
+    this.pulseAnimationEnable = enable;
     return this;
   }
 
