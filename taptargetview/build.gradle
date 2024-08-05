@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-def libname = 'TapTargetView'
 group = 'com.github.onlinerby'
 version = '1.14.1'
 description = 'An implementation of tap targets from the Material Design guidelines for feature discovery'
@@ -25,4 +24,18 @@ dependencies {
     api "androidx.annotation:annotation:1.8.1"
     api "androidx.appcompat:appcompat:1.7.0"
     implementation "androidx.core:core:1.13.1"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.onlinerby'
+                artifactId = 'TapTargetView'
+                version = '1.14.1'
+            }
+        }
+    }
 }
