@@ -7,4 +7,4 @@ dependencyResolutionManagement {
     }
 }
 
-include ':app', ':taptargetview'
+include ':taptargetview'
