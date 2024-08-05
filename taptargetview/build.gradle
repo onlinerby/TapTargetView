@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
 def libname = 'TapTargetView'
 group = 'com.github.onlinerby'
@@ -8,6 +7,7 @@ version = '1.14.1'
 description = 'An implementation of tap targets from the Material Design guidelines for feature discovery'
 
 android {
+    namespace = "com.getkeepsafe.taptargetview"
     compileSdkVersion defCompileSdkVersion
     buildToolsVersion defBuildToolsVersion
 
@@ -20,80 +20,4 @@ dependencies {
     api "androidx.annotation:annotation:1.8.1"
     api "androidx.appcompat:appcompat:1.7.0"
     implementation "androidx.core:core:1.13.1"
-}
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            name libname
-            description project.description
-            url "https://github.com/onlinerby/$libname"
-            inceptionYear 2016
-
-            packaging 'aar'
-            groupId project.group
-            artifactId 'taptargetview'
-            version project.version
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-            scm {
-                connection "https://github.com/onlinerby/${libname}.git"
-                url "https://github.com/onlinerby/$libname"
-            }
-            developers {
-                developer {
-                    name 'Onlinerby'
-                }
-            }
-        }
-    }
-}
-
-bintray {
-    user = project.hasProperty('bintray.user') ? project.property('bintray.user') : ''
-    key = project.hasProperty('bintray.apikey') ? project.property('bintray.apikey') : ''
-    configurations = ['archives']
-    pkg {
-        repo = 'Android'
-        name = libname
-        userOrg = 'onlinerbysoftware'
-        licenses = ['Apache-2.0']
-        vcsUrl = "https://github.com/onlinerby/${libname}.git"
-
-        version {
-            name = project.version
-            desc = project.description
-            released = new Date()
-            vcsTag = project.version
-        }
-    }
-}
-
-// build a jar with source files
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-// build a jar with javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
 }

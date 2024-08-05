@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace = "com.getkeepsafe.taptargetviewsample"
+
     compileSdkVersion defCompileSdkVersion
     buildToolsVersion defBuildToolsVersion
 
