@@ -39,7 +39,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.findByName('release')
-                groupId = 'com.github.onlinerby'
+                groupId = 'com.getkeepsafe.taptargetview'
                 artifactId = 'TapTargetView'
                 version = '1.14.1'
             }
